@@ -5,8 +5,7 @@ import {
   Text,
   View,
   ScrollView,
-  Button,
-  StatusBar
+  Button
 } from 'react-native';
 
 import HeaderBar from './HeaderBar';
@@ -57,7 +56,6 @@ export default class FormContainer extends Component {
         return (
             <View>
                 <ScrollView>
-                    <StatusBar backgroundColor="blue" barStyle="light-content"/>
                     <HeaderBar />
                     <ProgressHeader />
                     { this.getCurrentComponent() }   

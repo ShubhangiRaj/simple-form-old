@@ -5,7 +5,8 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  Button
 } from 'react-native';
 
 export default class UploadPhoto extends Component {
@@ -44,7 +45,6 @@ export default class UploadPhoto extends Component {
                 </View>
                 <Text style={{paddingLeft:20,paddingBottom:10}}>Please upload any photo here.</Text>
                 
-                <Button onPress={this.onPressButton} block style={{backgroundColor:'#CCD6DD', flex:1,justifyContent: 'center', alignItems: 'center', marginBottom:100}}><Text>Next</Text></Button>  
 
             </View>
         );
