@@ -9,12 +9,15 @@ import {
   Button
 } from 'react-native';
 
-export default class UploadPhoto extends Component {
+export default class UploadPhotoForm extends Component {
+
     componentWillMount(){
         this.state={
           src : require('../img/uploadIcon.png'),
+          uploadErrMsg: ""
         };
     }
+
     openGalleryView = () => {
         // This methods exists to make the code extensible to support choice of photo 
         // selection from a photo gallery in future case.
@@ -23,18 +26,25 @@ export default class UploadPhoto extends Component {
 
         // currently just calling renderPhoto()
         var imagePath = require('../img/uploadedImage.png') ;
-        this.renderPhoto(imagePath);
-       
+        var result    = this.renderPhoto(imagePath);
+        return result;
     }
-    renderPhoto = (imagePath) => {
-         // renderPhoto() uses setState to update the src prop
-        this.setState({ src: imagePath});
 
+    renderPhoto = (imagePath) => {
+        this.setState({ src : imagePath });
+        this.props.onCurrentFormIsValid();
     }
+
+    //interface method for parent component to call t
+    showErrorForInvalidForm = () => {
+      this.setState({uploadErrMsg: "You need to upload a photo"});
+    }
+
     render() {
         return (
-            <View style={{backgroundColor:'#F7F9FB'}}>
-                <Text style={{paddingLeft:20, paddingBottom:10}}>Upload Photo </Text>
+            <View style={{backgroundColor :'#F7F9FB'}}>
+                <Text style={{paddingLeft :20, paddingBottom:10}}>Upload Photo </Text>
+                <Text style={{color :'red'}}>{this.state.uploadErrMsg}</Text>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <View style={{ height:200, width: 320, backgroundColor: '#EAEFF2'}}>
                         <TouchableHighlight underlayColor='rgba(255,255,255,.01)' style={{flex:1, justifyContent: 'center', alignItems: 'center'}} 
@@ -43,14 +53,12 @@ export default class UploadPhoto extends Component {
                         </TouchableHighlight>
                     </View>
                 </View>
-                <Text style={{paddingLeft:20,paddingBottom:10}}>Please upload any photo here.</Text>
-                
-
+                <Text style={{paddingLeft:20, paddingBottom:10}}>Please upload any photo here.</Text>
             </View>
         );
         
     }
 }
 
-AppRegistry.registerComponent('UploadPhoto', () => UploadPhoto);
+AppRegistry.registerComponent('UploadPhotoForm', () => UploadPhotoForm);
 

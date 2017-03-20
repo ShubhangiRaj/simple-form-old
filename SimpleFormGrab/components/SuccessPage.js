@@ -11,8 +11,8 @@ import {
 export default class SuccessPage extends Component {
     render() {
         return (
-            <View style={{backgroundColor:'#F7F9FB'}}>
-                <View style={{height: 50, backgroundColor: '#00B140'}}></View>
+            <View style={{backgroundColor:'#F7F9FB', flex:1, justifyContent: 'center', alignItems: 'center'}}>
+                <Text>Complete</Text>
             </View>
         );
         

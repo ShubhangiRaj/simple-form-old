@@ -10,46 +10,67 @@ import {
 
 import HeaderBar from './HeaderBar';
 import ProgressHeader from './ProgressHeader';
-import UploadPhoto from './UploadPhoto';
-import NativeBaseForm from './NativeBaseForm';
+import UploadPhotoForm from './UploadPhotoForm';
+import UserInputForm from './UserInputForm';
+import SuccessPage from './SuccessPage';
 
 export default class FormContainer extends Component {
 
     componentWillMount() {
-        this.currentComponentIndex = 0;
-        this.components= [UploadPhoto, NativeBaseForm];
+        this.currentFormIndex = 0;
+        this.forms = [UploadPhotoForm, UserInputForm, SuccessPage];
+        this.isCurrentFormValid  = false;
+
+
         this.state = {
-            currentComponent: this.components[this.currentComponentIndex],
+            currentForm         : this.forms[this.currentFormIndex],
+            showNextButton      : true
         };
     }
 
-    incrementComponentIndex(){
-        if(this.currentComponentIndex < this.components.length-1){
-            this.currentComponentIndex++;
+    incrementFormIndex(){
+        if(this.currentFormIndex < this.forms.length-1){
+            this.currentFormIndex++;
         }
     }
 
-    // this method would be required to support Back traversal in the form flow
-    decrementComponentIndex(){
-        if(this.currentComponentIndex > 0){
-            this.currentComponentIndex--;
+    // this method would be required if we support Back traversal in the form flow
+    decrementFormIndex(){
+        if(this.currentFormIndex > 0){
+            this.currentFormIndex--;
         }
     }
 
-    getCurrentComponent(){
-        const CurrentComponent = this.state.currentComponent;
-        return <CurrentComponent/>;
+    getCurrentForm(){
+        const CurrentForm  = this.state.currentForm ;
+        return  <CurrentForm  onCurrentFormIsValid = {this.onCurrentFormIsValid} ref="currentFormInterface"/>
     }
 
-    renderCurrentComponent(){
+
+    // This will be called by current form, (this method is a listener for validity of the current form ) 
+    onCurrentFormIsValid = () => {
+        this.isCurrentFormValid = true;
+    }
+
+    renderCurrentForm (){
         this.setState({
-            currentComponent: this.components[this.currentComponentIndex]
+            currentForm : this.forms[this.currentFormIndex]
         });
+        this.isCurrentFormValid = false;
     }
 
     next = () => {
-        this.incrementComponentIndex();
-        this.renderCurrentComponent();
+
+        if(!this.isCurrentFormValid){
+            this.refs.currentFormInterface.showErrorForInvalidForm();
+            return;
+        }
+        this.incrementFormIndex();
+        this.renderCurrentForm();
+
+        if(this.currentFormIndex == this.forms.length - 1){
+            this.setState({showNextButton : false});
+        }
     }
 
     render() {
@@ -58,8 +79,8 @@ export default class FormContainer extends Component {
                 <ScrollView>
                     <HeaderBar />
                     <ProgressHeader />
-                    { this.getCurrentComponent() }   
-                    <Button title = "Next" onPress={this.next} > </Button>            
+                    { this.getCurrentForm() }   
+                    { this.state.showNextButton && <Button title = "Next" onPress={this.next} > </Button>  }          
                 </ScrollView>
             </View>
         );
