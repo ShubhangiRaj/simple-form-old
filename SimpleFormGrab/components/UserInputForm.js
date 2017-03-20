@@ -26,6 +26,7 @@ export default class UserInputForm extends Component {
                         contactNumberErrMsg : "",
                         addressErrMsg       : ""
         };
+        this.validateInputFields();
     }
 
     validateInputFields = () => {

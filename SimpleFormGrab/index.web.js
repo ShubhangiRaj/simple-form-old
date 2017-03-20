@@ -8,14 +8,18 @@ import {
 } from 'react-native';
 
 import FormContainer from './components/FormContainer';
+import UploadPhotoForm from './components/UploadPhotoForm';
+import UserInputForm from './components/UserInputForm';
 
 
 class SimpleFormGrab extends Component {
   render() {
     return (
+      var forms = [UploadPhotoForm, UserInputForm];
+
       <View >
         <ScrollView>
-          <FormContainer/>
+          <FormContainer forms = {forms}/>
         </ScrollView>
       </View>
     );

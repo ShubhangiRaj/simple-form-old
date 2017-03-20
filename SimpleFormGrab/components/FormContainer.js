@@ -10,15 +10,14 @@ import {
 
 import HeaderBar from './HeaderBar';
 import ProgressHeader from './ProgressHeader';
-import UploadPhotoForm from './UploadPhotoForm';
-import UserInputForm from './UserInputForm';
 import SuccessPage from './SuccessPage';
 
 export default class FormContainer extends Component {
 
     componentWillMount() {
         this.currentFormIndex = 0;
-        this.forms = [UploadPhotoForm, UserInputForm, SuccessPage];
+        this.forms = this.props.forms;
+        this.forms.push(SuccessPage);
         this.isCurrentFormValid  = false;
 
 
