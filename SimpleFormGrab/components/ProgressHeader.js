@@ -3,12 +3,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  Dimensions
+  View
 } from 'react-native';
-
-var {height, width} = Dimensions.get('window');
-
 
 // Each View is highlighted on successfull event
 export default class ProgressHeader extends Component {
@@ -50,11 +46,18 @@ export default class ProgressHeader extends Component {
 var styles = StyleSheet.create({
     inactiveHeader :{
       color   : '#9B9B9B',
-      padding : 15
+      height  : 50,
+      padding : 15,
+      borderWidth: 0.5,
+      borderColor: '#00B23E', 
+      backgroundColor: '#fff'
     },
     activeHeader : {
-      color  : '#00B23E',
-      padding: 15
+      color  : '#fff',
+      height : 50,
+      padding : 15,
+      backgroundColor: '#00B23E',
+      borderColor: '#fff',
     }
 });
 

@@ -5,7 +5,8 @@ import {
   Text,
   View,
   ScrollView,
-  Button
+  Button,
+  Dimensions
 } from 'react-native';
 
 import HeaderBar from './HeaderBar';
@@ -85,16 +86,22 @@ export default class FormContainer extends Component {
             <View style={{flex:1}}>
                 <HeaderBar />
                 <ProgressHeader numberOfForms = {this.forms.length}  activeFormIndex = {0} ref="progressHeaderInterface"/>
-                <View style={{}}>
+                <View style={styles.formContainer}>
                     { this.getCurrentForm() }   
                 </View>
-                <View style={{}}>
-                    { this.state.showNextButton && <Button color = {this.state.color} title = "Next" onPress={this.next}> </Button> }
-                </View>          
+                { this.state.showNextButton && <Button color = {this.state.color} title = "Next" onPress={this.next}> </Button> }
+
             </View>
         );
     }
 }
 
+var {height, width} = Dimensions.get('window');
+var formHeight = height - (40 + 50 + 60);
+var styles = StyleSheet.create({
+    formContainer:{
+        height:formHeight
+    }
+});
 
 AppRegistry.registerComponent('FormContainer', () => FormContainer);

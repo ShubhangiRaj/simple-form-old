@@ -12,7 +12,7 @@ import UploadPhotoForm from './components/UploadPhotoForm';
 import UserInputForm from './components/UserInputForm';
 
 export default class SimpleFormGrab extends Component {
-  render() {
+    render() {
         var forms = [UploadPhotoForm,  UserInputForm];
         return (
             <View>

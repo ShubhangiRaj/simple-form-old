@@ -5,10 +5,8 @@ import {
   View,
   TouchableHighlight,
   TextInput,
-  Text,
-  Dimensions
+  Text
 } from 'react-native';
-
 
 export default class UserInputForm extends Component {
     componentWillMount() {
@@ -99,25 +97,72 @@ export default class UserInputForm extends Component {
 
     render() {
         return (
-            <View style={{flex:1, backgroundColor:"#F7F9FB"}}>
-                    <Text style={{paddingLeft :20, paddingBottom:10, paddingTop:20,color:'#363A45', fontSize:16}}>Your Contact Information</Text>
-                    <Text style={{paddingLeft:20,paddingBottom:20, color:'#565D6B', fontSize:12}}>Fill in the following details</Text>
+            <View style={styles.parentView}>
+                    <Text style={styles.contactInfoText}>Your Contact Information</Text>
+                    <Text style={styles.contactInfoSubText}>Fill in the following details</Text>
 
-                    <TextInput underlineColorAndroid="transparent" style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Your First Name" placeholderTextColor='#A3A9B2' id="firstName" ref="firstName" onChangeText={this.onFirstNameChange} value={this.state.firstName} />
-                    <Text style={{color :'red', paddingLeft:20, paddingBottom:10}}>{this.state.firstNameErrMsg}</Text>
+                    <View style={styles.inputViewWrapper}>
+                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Your First Name" placeholderTextColor='#A3A9B2' id="firstName" ref="firstName" onChangeText={this.onFirstNameChange} value={this.state.firstName} />
+                    </View>
+                    <Text style={styles.errMsg}>{this.state.firstNameErrMsg}</Text>
 
-                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Your Last Name" placeholderTextColor='#A3A9B2' id="lastName" ref="lastName" onChangeText={this.onLastNameChange} value={this.state.lastName} />
-                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.lastNameErrMsg}</Text>
+                    <View style={styles.inputViewWrapper}>
+                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Your Last Name" placeholderTextColor='#A3A9B2' id="lastName" ref="lastName" onChangeText={this.onLastNameChange} value={this.state.lastName} />
+                    </View>
+                    <Text style={styles.errMsg}>{this.state.lastNameErrMsg}</Text>
 
-                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Contact Number" placeholderTextColor='#A3A9B2' id="contactNumber" ref="contactNumber" onChangeText={this.onContactNumChange} value={this.state.contactNumber} />
-                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.contactNumberErrMsg}</Text>
+                    <View  style={styles.inputViewWrapper}>
+                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Contact Number" placeholderTextColor='#A3A9B2' id="contactNumber" ref="contactNumber" onChangeText={this.onContactNumChange} value={this.state.contactNumber} />
+                    </View>
+                    <Text style={styles.errMsg}>{this.state.contactNumberErrMsg}</Text>
 
-                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Address" placeholderTextColor='#A3A9B2' id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address} multiline={true} />
-                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.addressErrMsg}</Text>    
+                    <View  style={styles.inputViewWrapper}>
+                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Address" placeholderTextColor='#A3A9B2' id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address} multiline={true} />
+                    </View>
+                    <Text style={styles.errMsg}>{this.state.addressErrMsg}</Text>    
             </View>
         );
     }
 }
+
+var styles = StyleSheet.create({
+    parentView :{
+        flex:1, 
+        backgroundColor :'#F7F9FB'
+    },
+    contactInfoText:{
+        paddingLeft :20,
+        paddingTop:20,
+        color:'#363A45',
+        fontSize:16
+    },
+    contactInfoSubText:{
+        paddingLeft:20,
+        paddingBottom:20, 
+        color:'#565D6B', 
+        fontSize:12
+    },
+    errMsg:{
+        color :'red', 
+        paddingLeft:20,
+        fontSize:14, 
+        paddingBottom:10
+    },
+    inputViewWrapper:{
+        justifyContent: 'center', 
+        alignItems: 'center'
+    },
+    textInputBox:{
+        paddingLeft:20, 
+        width:320,
+        height:50,
+        color:'#363A45', 
+        fontSize:16, 
+        borderWidth: 1,
+        borderColor: '#CCD6DD', 
+        backgroundColor:"#EAEFF2"
+    }
+});
 
 AppRegistry.registerComponent('UserInputForm', () => UserInputForm);
 

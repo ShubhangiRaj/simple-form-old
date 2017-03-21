@@ -42,23 +42,62 @@ export default class UploadPhotoForm extends Component {
 
     render() {
         return (
-            <View style={{backgroundColor :'#F7F9FB'}}>
-                <Text style={{paddingLeft :20, paddingBottom:0, paddingTop:20,color:'#363A45',fontSize:16}}>Upload Photo </Text>
-                <Text style={{color :'red', paddingLeft:20, color:'#D64425',fontSize:14, paddingBottom:10}}>{this.state.uploadErrMsg}</Text>
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <View style={{ height:200, width: 320, backgroundColor: '#EAEFF2'}}>
-                        <TouchableHighlight underlayColor='rgba(255,255,255,.01)' style={{flex:1, justifyContent: 'center', alignItems: 'center'}} 
+            <View style={styles.parentView}>
+                <Text style={styles.uploadPhoto}>Upload Photo </Text>
+                <Text style={styles.errMsg}>{this.state.uploadErrMsg}</Text>
+                <View style={styles.uploadContainerParentView}>
+                    <View style={styles.uploadContainerChildView}>
+                        <TouchableHighlight underlayColor='rgba(255,255,255,.01)' style={styles.uploadPhotoTouchableHighlight} 
                                             onPress={this.openGalleryView}>
                             <Image source={this.state.src}/>
                         </TouchableHighlight>
                     </View>
                 </View>
-                <Text style={{paddingLeft:20, paddingBottom:10, paddingTop:10, fontSize:12}}>Please upload any photo here.</Text>
+                <Text style={styles.footerText}>Please upload any photo here.</Text>
             </View>
         );
         
     }
 }
+
+var styles = StyleSheet.create({
+    parentView :{
+      flex:1,  
+      backgroundColor :'#F7F9FB'
+    },
+    uploadPhoto:{
+      paddingLeft :20,
+      paddingTop:20,
+      color:'#363A45',
+      fontSize:16
+    },
+    errMsg:{
+      color :'red', 
+      paddingLeft:20,
+      fontSize:14, 
+      paddingBottom:10
+    },
+    uploadContainerParentView:{
+      justifyContent: 'center', 
+      alignItems: 'center'
+    },
+    uploadContainerChildView:{
+       height:200, 
+       width: 320, 
+       backgroundColor: '#EAEFF2'
+    },
+    uploadPhotoTouchableHighlight:{
+      flex:1, 
+      justifyContent: 'center', 
+      alignItems: 'center'
+    },
+    footerText:{
+      paddingLeft:20, 
+      paddingBottom:10, 
+      paddingTop:10, 
+      fontSize:12
+    }
+});
 
 AppRegistry.registerComponent('UploadPhotoForm', () => UploadPhotoForm);
 

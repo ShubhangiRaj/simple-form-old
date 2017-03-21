@@ -11,13 +11,20 @@ import {
 export default class HeaderBar extends Component {
     render() {
         return (
-            <View style={{backgroundColor:'#F7F9FB'}}>
-                <View style={{height: 50, backgroundColor: '#00B140'}}></View>
+            <View>
+                <View style={styles.headerBar}></View>
             </View>
         );
         
     }
 }
+var styles = StyleSheet.create({
+    headerBar :{
+      flex:1, 
+      height: 40, 
+      backgroundColor: '#00B140'
+    }
+});
 
 AppRegistry.registerComponent('HeaderBar', () => HeaderBar);
 
