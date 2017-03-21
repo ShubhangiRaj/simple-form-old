@@ -5,8 +5,8 @@ import {
   Text,
   View,
   ScrollView,
-  Button,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from 'react-native';
 
 import HeaderBar from './HeaderBar';
@@ -24,8 +24,7 @@ export default class FormContainer extends Component {
 
         this.state = {
             currentForm         : this.forms[this.currentFormIndex],
-            showNextButton      : true,
-            color               : '#CCD6DD'
+            showNextButton      : true
         };
     }
 
@@ -89,7 +88,10 @@ export default class FormContainer extends Component {
                 <View style={styles.formContainer}>
                     { this.getCurrentForm() }   
                 </View>
-                { this.state.showNextButton && <Button color = {this.state.color} title = "Next" onPress={this.next}> </Button> }
+                { this.state.showNextButton && 
+                    <TouchableOpacity  style={ this.isCurrentFormValid ? styles.nextButtonActive : styles.nextButtonInActive}  onPress={this.next} > 
+                        <Text style={{color:"#fff"}}> Next </Text> 
+                    </TouchableOpacity> }
 
             </View>
         );
@@ -97,10 +99,22 @@ export default class FormContainer extends Component {
 }
 
 var {height, width} = Dimensions.get('window');
-var formHeight = height - (40 + 50 + 60);
+var formHeight = height - (40 + 60 + 75);
 var styles = StyleSheet.create({
     formContainer:{
         height:formHeight
+    },
+    nextButtonActive:{
+        height:60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor : '#00B23E'
+    },
+    nextButtonInActive:{
+        height:60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor : '#CCD6DD'
     }
 });
 
