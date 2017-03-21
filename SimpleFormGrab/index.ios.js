@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -14,15 +13,15 @@ import UserInputForm from './components/UserInputForm';
 
 export default class SimpleFormGrab extends Component {
   render() {
-     var forms = [UploadPhotoForm, UserInputForm];
-     return (
+        var forms = [UploadPhotoForm,  UserInputForm];
+        return (
             <View>
                 <ScrollView>
-                    <FormContainer  forms = {forms}/>
+                    <FormContainer forms = {forms}/>
                 </ScrollView>
             </View>
         );
-  }
+    }
 }
 
 AppRegistry.registerComponent('SimpleFormGrab', () => SimpleFormGrab);

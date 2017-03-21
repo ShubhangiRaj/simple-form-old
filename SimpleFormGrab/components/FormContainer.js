@@ -23,7 +23,8 @@ export default class FormContainer extends Component {
 
         this.state = {
             currentForm         : this.forms[this.currentFormIndex],
-            showNextButton      : true
+            showNextButton      : true,
+            color               : '#CCD6DD'
         };
     }
 
@@ -49,13 +50,20 @@ export default class FormContainer extends Component {
     // This will be called by current form, (this method is a listener for validity of the current form ) 
     onCurrentFormIsValid = () => {
         this.isCurrentFormValid = true;
+        this.setState({
+            color : '#00B140'
+        })
     }
 
-    renderCurrentForm (){
+    renderNextForm (){
+        this.incrementFormIndex();
         this.setState({
             currentForm : this.forms[this.currentFormIndex]
         });
         this.isCurrentFormValid = false;
+        this.state.color = '#CCD6DD';
+        this.refs.progressHeaderInterface.incrementActiveIndex(this.currentFormIndex);
+        
     }
 
     next = () => {
@@ -64,8 +72,8 @@ export default class FormContainer extends Component {
             this.refs.currentFormInterface.showErrorForInvalidForm();
             return;
         }
-        this.incrementFormIndex();
-        this.renderCurrentForm();
+
+        this.renderNextForm();
 
         if(this.currentFormIndex == this.forms.length - 1){
             this.setState({showNextButton : false});
@@ -74,16 +82,19 @@ export default class FormContainer extends Component {
 
     render() {
         return (
-            <View>
-                <ScrollView>
-                    <HeaderBar />
-                    <ProgressHeader />
+            <View style={{flex:1}}>
+                <HeaderBar />
+                <ProgressHeader numberOfForms = {this.forms.length}  activeFormIndex = {0} ref="progressHeaderInterface"/>
+                <View style={{}}>
                     { this.getCurrentForm() }   
-                    { this.state.showNextButton && <Button title = "Next" onPress={this.next} > </Button>  }          
-                </ScrollView>
+                </View>
+                <View style={{}}>
+                    { this.state.showNextButton && <Button color = {this.state.color} title = "Next" onPress={this.next}> </Button> }
+                </View>          
             </View>
         );
     }
 }
+
 
 AppRegistry.registerComponent('FormContainer', () => FormContainer);

@@ -14,9 +14,8 @@ import UserInputForm from './components/UserInputForm';
 
 class SimpleFormGrab extends Component {
   render() {
+    var forms = [UploadPhotoForm, UserInputForm];
     return (
-      var forms = [UploadPhotoForm, UserInputForm];
-
       <View >
         <ScrollView>
           <FormContainer forms = {forms}/>

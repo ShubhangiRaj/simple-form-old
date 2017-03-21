@@ -43,17 +43,17 @@ export default class UploadPhotoForm extends Component {
     render() {
         return (
             <View style={{backgroundColor :'#F7F9FB'}}>
-                <Text style={{paddingLeft :20, paddingBottom:10}}>Upload Photo </Text>
-                <Text style={{color :'red'}}>{this.state.uploadErrMsg}</Text>
+                <Text style={{paddingLeft :20, paddingBottom:0, paddingTop:20,color:'#363A45',fontSize:16}}>Upload Photo </Text>
+                <Text style={{color :'red', paddingLeft:20, color:'#D64425',fontSize:14, paddingBottom:10}}>{this.state.uploadErrMsg}</Text>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <View style={{ height:200, width: 320, backgroundColor: '#EAEFF2'}}>
                         <TouchableHighlight underlayColor='rgba(255,255,255,.01)' style={{flex:1, justifyContent: 'center', alignItems: 'center'}} 
                                             onPress={this.openGalleryView}>
-                            <Image source={this.state.src} />
+                            <Image source={this.state.src}/>
                         </TouchableHighlight>
                     </View>
                 </View>
-                <Text style={{paddingLeft:20, paddingBottom:10}}>Please upload any photo here.</Text>
+                <Text style={{paddingLeft:20, paddingBottom:10, paddingTop:10, fontSize:12}}>Please upload any photo here.</Text>
             </View>
         );
         

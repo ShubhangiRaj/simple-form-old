@@ -5,7 +5,8 @@ import {
   View,
   TouchableHighlight,
   TextInput,
-  Text
+  Text,
+  Dimensions
 } from 'react-native';
 
 
@@ -98,29 +99,21 @@ export default class UserInputForm extends Component {
 
     render() {
         return (
-            <View>
-                    <Text style={{paddingLeft:20}}>Your Contact Information</Text>
-                    <Text style={{paddingLeft:20}}>Fill in the following details</Text>
+            <View style={{flex:1, backgroundColor:"#F7F9FB"}}>
+                    <Text style={{paddingLeft :20, paddingBottom:10, paddingTop:20,color:'#363A45', fontSize:16}}>Your Contact Information</Text>
+                    <Text style={{paddingLeft:20,paddingBottom:20, color:'#565D6B', fontSize:12}}>Fill in the following details</Text>
 
-                        
-                    <Text style={{paddingLeft:20, paddingTop:4}}>Your First Name</Text>
-                    <TextInput id="firstName" ref="firstName" onChangeText={this.onFirstNameChange} value={this.state.firstName} />
-                    <Text style={{color :'red'}}>{this.state.firstNameErrMsg}</Text>
+                    <TextInput underlineColorAndroid="transparent" style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Your First Name" placeholderTextColor='#A3A9B2' id="firstName" ref="firstName" onChangeText={this.onFirstNameChange} value={this.state.firstName} />
+                    <Text style={{color :'red', paddingLeft:20, paddingBottom:10}}>{this.state.firstNameErrMsg}</Text>
 
-                    
-                    <Text style={{paddingLeft:20,paddingTop:4}}>Your Last Name</Text>
-                    <TextInput id="lastName" ref="lastName" onChangeText={this.onLastNameChange} value={this.state.lastName} />
-                    <Text style={{color :'red'}}>{this.state.lastNameErrMsg}</Text>
+                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Your Last Name" placeholderTextColor='#A3A9B2' id="lastName" ref="lastName" onChangeText={this.onLastNameChange} value={this.state.lastName} />
+                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.lastNameErrMsg}</Text>
 
-                  
-                    <Text style={{paddingLeft:20,paddingTop:4}}>Contact Number</Text>
-                    <TextInput id="contactNumber" ref="contactNumber" onChangeText={this.onContactNumChange} value={this.state.contactNumber} />
-                    <Text style={{color :'red'}}>{this.state.contactNumberErrMsg}</Text>
+                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Contact Number" placeholderTextColor='#A3A9B2' id="contactNumber" ref="contactNumber" onChangeText={this.onContactNumChange} value={this.state.contactNumber} />
+                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.contactNumberErrMsg}</Text>
 
-                        
-                    <Text style={{paddingLeft:20,paddingTop:4, marginBottom:20}}>Address</Text>
-                    <TextInput id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address} />
-                    <Text style={{color :'red'}}>{this.state.addressErrMsg}</Text>    
+                    <TextInput style={{paddingLeft:20, color:'#363A45', fontSize:16, borderWidth: 1,borderColor: '#CCD6DD', backgroundColor:"#EAEFF2"}} placeholder="Address" placeholderTextColor='#A3A9B2' id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address} multiline={true} />
+                    <Text style={{color :'red',paddingLeft:20, paddingBottom:10}}>{this.state.addressErrMsg}</Text>    
             </View>
         );
     }
