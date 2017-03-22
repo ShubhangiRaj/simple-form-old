@@ -15,10 +15,10 @@ Installing React Native CLI
 npm install -g react-native-cli
 ```
 Installing Android Studio
-For android, set up android development enviroment by following this [official guide](https://facebook.github.io/react-native/docs/getting-started.html).
+- For android, set up android development enviroment by following this [official guide](https://facebook.github.io/react-native/docs/getting-started.html).
 
 Installing Xcode
-For IOS, install and setup Xcode by following this [official guide](https://facebook.github.io/react-native/docs/getting-started.html).
+- For IOS, install and setup Xcode by following this [official guide](https://facebook.github.io/react-native/docs/getting-started.html).
 
 ### Running the code
 Clone the git repo in your local machine. 
