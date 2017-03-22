@@ -13,7 +13,7 @@ export default class UploadPhotoForm extends Component {
 
     componentWillMount(){
         this.state={
-          src : require('../img/uploadIcon.png'),
+          src : require('../img/uploadIcon_2.png'),
           uploadErrMsg: ""
         };
     }
@@ -49,7 +49,7 @@ export default class UploadPhotoForm extends Component {
                     <View style={styles.uploadContainerChildView}>
                         <TouchableHighlight underlayColor='rgba(255,255,255,.01)' style={styles.uploadPhotoTouchableHighlight} 
                                             onPress={this.openGalleryView}>
-                            <Image source={this.state.src}/>
+                            <Image style={{width:300, height:200}} source={this.state.src}/>
                         </TouchableHighlight>
                     </View>
                 </View>
@@ -63,7 +63,7 @@ export default class UploadPhotoForm extends Component {
 var styles = StyleSheet.create({
     parentView :{
       flex:1,  
-      backgroundColor :'#F7F9FB'
+      backgroundColor :'#F7F9FB', 
     },
     uploadPhoto:{
       paddingLeft :20,

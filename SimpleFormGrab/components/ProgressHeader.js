@@ -3,7 +3,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 // Each View is highlighted on successfull event
@@ -29,8 +30,10 @@ export default class ProgressHeader extends Component {
         }  
 
         var headers = headerArray.map((a, i) => {
-            return  <View key={i} style={{ backgroundColor: '#f5f5f5', flex:1}}>
-                      <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a } ></Text>
+            return  <View key={i} style={styles.parentView}>
+                      <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a } <Image source={require('../img/progressBarIcon.png')}/>
+                      </Text>
+                      
                     </View> 
         });       
         
@@ -44,20 +47,23 @@ export default class ProgressHeader extends Component {
 }
 
 var styles = StyleSheet.create({
+    parentView:{
+      backgroundColor: '#fff', 
+      flex:1,
+      flexDirection: 'row', 
+      justifyContent:'center'
+    },
     inactiveHeader :{
       color   : '#9B9B9B',
       height  : 50,
-      padding : 15,
-      borderWidth: 0.5,
-      borderColor: '#00B23E', 
+      paddingTop : 20,
       backgroundColor: '#fff'
     },
     activeHeader : {
-      color  : '#fff',
+      color  : '#00B23E',
       height : 50,
-      padding : 15,
-      backgroundColor: '#00B23E',
-      borderColor: '#fff',
+      paddingTop : 20,
+      backgroundColor: '#fff'
     }
 });
 

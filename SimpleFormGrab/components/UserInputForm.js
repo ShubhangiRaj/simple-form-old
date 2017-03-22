@@ -100,7 +100,7 @@ export default class UserInputForm extends Component {
             <View style={styles.parentView}>
                     <Text style={styles.contactInfoText}>Your Contact Information</Text>
                     <Text style={styles.contactInfoSubText}>Fill in the following details</Text>
-
+                <View style={styles.childView}>
                     <View style={styles.inputViewWrapper}>
                         <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Your First Name" placeholderTextColor='#A3A9B2' id="firstName" ref="firstName" onChangeText={this.onFirstNameChange} value={this.state.firstName} />
                     </View>
@@ -117,9 +117,10 @@ export default class UserInputForm extends Component {
                     <Text style={styles.errMsg}>{this.state.contactNumberErrMsg}</Text>
 
                     <View  style={styles.inputViewWrapper}>
-                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Address" placeholderTextColor='#A3A9B2' id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address} multiline={true} />
+                        <TextInput underlineColorAndroid="transparent" style={styles.textInputBox} placeholder="Address" placeholderTextColor='#A3A9B2' id="address" ref="address" onChangeText={this.onAddressChange} value={this.state.address}/>
                     </View>
-                    <Text style={styles.errMsg}>{this.state.addressErrMsg}</Text>    
+                    <Text style={styles.errMsg}>{this.state.addressErrMsg}</Text> 
+                </View>   
             </View>
         );
     }
@@ -128,7 +129,11 @@ export default class UserInputForm extends Component {
 var styles = StyleSheet.create({
     parentView :{
         flex:1, 
-        backgroundColor :'#F7F9FB'
+        backgroundColor :'#F7F9FB',
+       
+    },
+    childView:{
+        alignItems:'center'
     },
     contactInfoText:{
         paddingLeft :20,
@@ -146,7 +151,8 @@ var styles = StyleSheet.create({
         color :'red', 
         paddingLeft:20,
         fontSize:14, 
-        paddingBottom:10
+        paddingBottom:10,
+        alignSelf: 'flex-start'
     },
     inputViewWrapper:{
         justifyContent: 'center', 
