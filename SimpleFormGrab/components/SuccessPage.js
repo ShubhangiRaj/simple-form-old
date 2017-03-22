@@ -22,14 +22,14 @@ export default class SuccessPage extends Component {
 
 var styles = StyleSheet.create({
     parentView :{
-      backgroundColor:'#F7F9FB', 
-      flex:1, 
-      alignItems: 'center'
+        backgroundColor:'#F7F9FB', 
+        flex:1, 
+        alignItems: 'center'
     },
     completeText : {
-     fontSize:20, 
-     color:'#14202C', 
-     paddingTop:40
+        fontSize:20, 
+        color:'#14202C', 
+        paddingTop:40
     }
 });
 

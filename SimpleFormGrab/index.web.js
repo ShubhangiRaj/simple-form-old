@@ -13,16 +13,16 @@ import UserInputForm from './components/UserInputForm';
 
 
 class SimpleFormGrab extends Component {
-  render() {
-    var forms = [UploadPhotoForm, UserInputForm];
-    return (
-      <View >
-        <ScrollView>
-          <FormContainer forms = {forms}/>
-        </ScrollView>
-      </View>
-    );
-  }
+    render() {
+        var forms = [UploadPhotoForm, UserInputForm];
+        return (
+            <View >
+                <ScrollView>
+                    <FormContainer forms = {forms}/>
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
 AppRegistry.registerComponent('SimpleFormGrab', () => SimpleFormGrab);

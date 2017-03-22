@@ -20,9 +20,9 @@ export default class HeaderBar extends Component {
 }
 var styles = StyleSheet.create({
     headerBar :{
-      flex:1, 
-      height: 40, 
-      backgroundColor: '#00B140'
+        flex:1, 
+        height: 40, 
+        backgroundColor: '#00B140'
     }
 });
 

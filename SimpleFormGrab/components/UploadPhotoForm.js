@@ -13,8 +13,8 @@ export default class UploadPhotoForm extends Component {
 
     componentWillMount(){
         this.state={
-          src : require('../img/uploadIcon_2.png'),
-          uploadErrMsg: ""
+            src : require('../img/uploadIcon_2.png'),
+            uploadErrMsg: ""
         };
     }
 
@@ -37,7 +37,7 @@ export default class UploadPhotoForm extends Component {
 
     //interface method for parent component to call t
     showErrorForInvalidForm = () => {
-      this.setState({uploadErrMsg: "You need to upload a photo"});
+        this.setState({uploadErrMsg: "You need to upload a photo"});
     }
 
     render() {
@@ -62,40 +62,40 @@ export default class UploadPhotoForm extends Component {
 
 var styles = StyleSheet.create({
     parentView :{
-      flex:1,  
-      backgroundColor :'#F7F9FB', 
+        flex:1,  
+        backgroundColor :'#F7F9FB', 
     },
     uploadPhoto:{
-      paddingLeft :20,
-      paddingTop:20,
-      color:'#363A45',
-      fontSize:16
+        paddingLeft :20,
+        paddingTop:20,
+        color:'#363A45',
+        fontSize:16
     },
     errMsg:{
-      color :'red', 
-      paddingLeft:20,
-      fontSize:14, 
-      paddingBottom:10
+        color :'red', 
+        paddingLeft:20,
+        fontSize:14, 
+        paddingBottom:10
     },
     uploadContainerParentView:{
-      justifyContent: 'center', 
-      alignItems: 'center'
+        justifyContent: 'center', 
+        alignItems: 'center'
     },
     uploadContainerChildView:{
-       height:200, 
-       width: 320, 
-       backgroundColor: '#EAEFF2'
+        height:200, 
+        width: 320, 
+        backgroundColor: '#EAEFF2'
     },
     uploadPhotoTouchableHighlight:{
-      flex:1, 
-      justifyContent: 'center', 
-      alignItems: 'center'
+        flex:1, 
+        justifyContent: 'center', 
+        alignItems: 'center'
     },
     footerText:{
-      paddingLeft:20, 
-      paddingBottom:10, 
-      paddingTop:10, 
-      fontSize:12
+        paddingLeft:20, 
+        paddingBottom:10, 
+        paddingTop:10, 
+        fontSize:12
     }
 });
 

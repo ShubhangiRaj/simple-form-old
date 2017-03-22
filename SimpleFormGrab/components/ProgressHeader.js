@@ -17,7 +17,7 @@ export default class ProgressHeader extends Component {
 
 
     incrementActiveIndex(i){
-      this.setState( {activeFormIndex  : i} );
+        this.setState( {activeFormIndex  : i} );
     }
 
 
@@ -31,15 +31,10 @@ export default class ProgressHeader extends Component {
 
         var headers = headerArray.map((a, i) => {
             return  <View key={i} style={styles.parentView}>
-                    <View style={styles.childView}>
-                      <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a }
-                      </Text>
-                    </View>
-                      
+                        <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a }</Text>
                     </View> 
-        });       
+            });       
         
-
         return (
             <View style={{ flexDirection: 'row'}}>
                { headers }
@@ -50,29 +45,24 @@ export default class ProgressHeader extends Component {
 
 var styles = StyleSheet.create({
     parentView:{
-      backgroundColor: '#fff', 
-      flex:1,
-      flexDirection: 'row', 
-      justifyContent:'center',
-      
-    },
-    childView:{
-      borderBottomWidth: 2,
-      borderBottomColor: '#00B23E'
+        backgroundColor: '#fff', 
+        flex:1,
+        flexDirection: 'row', 
+        justifyContent:'center',
     },
     inactiveHeader :{
-      color   : '#9B9B9B',
-      height  : 50,
-      paddingTop : 20,
-      backgroundColor: '#fff'
+        color   : '#9B9B9B',
+        height  : 50,
+        paddingTop : 20,
+        backgroundColor: '#fff'
     },
     activeHeader : {
-      color  : '#00B23E',
-      height : 50,
-      paddingTop : 20,
-      backgroundColor: '#fff',
-      borderBottomWidth: 2,
-      borderBottomColor: '#00B23E'
+        color  : '#00B23E',
+        height : 50,
+        paddingTop : 20,
+        backgroundColor: '#fff',
+        borderBottomWidth: 2,
+        borderBottomColor: '#00B23E'
     }
 });
 
