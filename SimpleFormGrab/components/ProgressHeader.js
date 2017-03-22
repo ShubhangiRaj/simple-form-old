@@ -31,8 +31,10 @@ export default class ProgressHeader extends Component {
 
         var headers = headerArray.map((a, i) => {
             return  <View key={i} style={styles.parentView}>
-                      <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a } <Image source={require('../img/progressBarIcon.png')}/>
+                    <View style={styles.childView}>
+                      <Text style={ this.state.activeFormIndex == i ? styles.activeHeader : styles.inactiveHeader } > Step { a }
                       </Text>
+                    </View>
                       
                     </View> 
         });       
@@ -51,7 +53,12 @@ var styles = StyleSheet.create({
       backgroundColor: '#fff', 
       flex:1,
       flexDirection: 'row', 
-      justifyContent:'center'
+      justifyContent:'center',
+      
+    },
+    childView:{
+      borderBottomWidth: 2,
+      borderBottomColor: '#00B23E'
     },
     inactiveHeader :{
       color   : '#9B9B9B',
@@ -63,7 +70,9 @@ var styles = StyleSheet.create({
       color  : '#00B23E',
       height : 50,
       paddingTop : 20,
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      borderBottomWidth: 2,
+      borderBottomColor: '#00B23E'
     }
 });
 

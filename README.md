@@ -1,2 +1,2 @@
 # simple-form
-React native form for IOS, Android and Web
+React native form for Android, iOS and Web
